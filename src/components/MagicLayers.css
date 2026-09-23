@@ -1,0 +1,264 @@
+.magic-section {
+  background-color: var(--card-bg);
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.magic-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin: 60px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center Image (Static, does not orbit) */
+.center-image-wrapper {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: 5; /* Lower than orbit container */
+}
+
+.center-diaper {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  position: relative;
+  z-index: 10;
+  animation: float 4s ease-in-out infinite;
+  /* Removed drop-shadow as requested */
+}
+
+body.dark-theme .center-diaper {
+  mix-blend-mode: normal;
+  background: white;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+/* Static Container for Nodes */
+.orbit-container {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  z-index: 20; /* Highest layer, above image */
+  pointer-events: none; /* Let clicks pass through empty areas */
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 3px dashed var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: spin-orbit 40s linear infinite; /* Only the ring spins */
+}
+
+@keyframes spin-orbit {
+  100% { transform: rotate(360deg); }
+}
+
+/* Feature Nodes & Orbit */
+.orbit-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+}
+
+.wrapper-tl { animation: orbit-tl 40s linear infinite; }
+.wrapper-tr { animation: orbit-tr 40s linear infinite; }
+.wrapper-br { animation: orbit-br 40s linear infinite; }
+.wrapper-bl { animation: orbit-bl 40s linear infinite; }
+
+/* 
+  Math for perfect upright orbit:
+  rotate(A) translateX(R) rotate(-A)
+  Radius R = 240px (half of 480px)
+  TL: starts at 225deg
+  TR: starts at 315deg
+  BR: starts at 45deg
+  BL: starts at 135deg
+*/
+@keyframes orbit-tl {
+  0% { transform: rotate(225deg) translateX(240px) rotate(-225deg); }
+  100% { transform: rotate(585deg) translateX(240px) rotate(-585deg); }
+}
+@keyframes orbit-tr {
+  0% { transform: rotate(315deg) translateX(240px) rotate(-315deg); }
+  100% { transform: rotate(675deg) translateX(240px) rotate(-675deg); }
+}
+@keyframes orbit-br {
+  0% { transform: rotate(45deg) translateX(240px) rotate(-45deg); }
+  100% { transform: rotate(405deg) translateX(240px) rotate(-405deg); }
+}
+@keyframes orbit-bl {
+  0% { transform: rotate(135deg) translateX(240px) rotate(-135deg); }
+  100% { transform: rotate(495deg) translateX(240px) rotate(-495deg); }
+}
+
+.feature-node {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  pointer-events: auto; /* Re-enable clicks/hover on cards */
+}
+
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.feature-node:hover {
+  transform: scale(1.05);
+}
+
+/* Beautiful Card Colors & Shine */
+.card-blue {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(59, 130, 246, 0.15);
+}
+
+.card-pink {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  border: 1px solid #fbcfe8;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(236, 72, 153, 0.15);
+}
+
+.card-yellow {
+  background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+  border: 1px solid #fef08a;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(234, 179, 8, 0.15);
+}
+
+.card-green {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #bbf7d0;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(34, 197, 94, 0.15);
+}
+
+/* Dark mode overrides for cards */
+body.dark-theme .card-blue {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+body.dark-theme .card-pink {
+  background: rgba(236, 72, 153, 0.15);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+body.dark-theme .card-yellow {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.4);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+body.dark-theme .card-green {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .feature-node h4 { color: #f8fafc; }
+body.dark-theme .feature-node p { color: #94a3b8; }
+body.dark-theme .node-icon { background-color: rgba(255,255,255,0.1); color: #f8fafc; }
+
+.node-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.node-text h4 {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin: 0 0 2px 0;
+}
+
+.node-text p {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .magic-wrapper {
+    height: auto;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 30px;
+  }
+
+  /* Disable orbit on mobile for readability, lay them out cleanly */
+  .orbit-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    animation: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .orbit-ring {
+    display: none;
+  }
+
+  .center-image-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    z-index: 10;
+  }
+
+  .orbit-wrapper {
+    position: relative;
+    top: auto; left: auto;
+    width: 100%;
+    height: auto;
+    animation: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .feature-node {
+    animation: none;
+    width: 90%;
+    max-width: 350px;
+    flex-direction: row;
+    white-space: normal;
+  }
+
+  .node-text {
+    text-align: left;
+  }
+}

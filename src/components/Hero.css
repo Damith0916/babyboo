@@ -1,0 +1,253 @@
+.hero-section {
+  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-pink) 100%);
+  padding: 80px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 550px;
+  z-index: 2;
+}
+
+.hero-content .subtitle {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero-content .title {
+  font-size: 4.5rem;
+  color: var(--primary-color);
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero-content .description {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+}
+
+.hero-features {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover .icon-circle {
+  box-shadow: var(--shadow-md);
+  transform: scale(1.1);
+}
+
+.text-blue { color: var(--accent-blue); }
+.text-pink { color: var(--secondary-color); }
+.text-red { color: #f87171; }
+
+/* SLIDER STYLES */
+.hero-slider-wrapper {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.hero-swiper {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background-color: var(--card-bg);
+}
+
+.hero-slide-img {
+  width: 100%;
+  padding-top: 100%; /* Aspect ratio 1:1 square */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: cinematic-breath 15s ease-in-out infinite alternate;
+}
+
+/* Swiper Pagination Styling */
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 0.5 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color) !important;
+  opacity: 1 !important;
+  width: 25px !important;
+  border-radius: 5px !important;
+}
+
+@keyframes cinematic-breath {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  background-color: var(--card-bg);
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-5deg);
+  line-height: 1.3;
+  transition: all 0.3s ease;
+  animation: pulse-soft 3s infinite alternate;
+  z-index: 10;
+}
+
+.floating-badge:hover {
+  transform: rotate(0deg) scale(1.1);
+}
+
+/* Decorations */
+.decor {
+  position: absolute;
+  color: var(--accent-yellow);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.decor-1 { top: 15%; left: 45%; font-size: 3rem; animation: float 5s ease-in-out infinite; }
+.decor-2 { top: 25%; left: 10%; font-size: 1.5rem; animation: pulse-soft 3s infinite; }
+.decor-3 { bottom: 20%; right: 5%; font-size: 2rem; animation: float 6s ease-in-out infinite; }
+
+/* Mobile Responsiveness - EXTREMELY FRIENDLY */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column-reverse; /* Put slider on top for better mobile look */
+    text-align: center;
+    padding-top: 20px;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-content .title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-features {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-slider-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .floating-badge {
+    bottom: -15px;
+    right: -10px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+
+  .hero-slide-img {
+    height: 350px;
+    padding: 0 10px;
+  }
+  
+  .decor {
+    display: none; /* Hide moon and star on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 0 60px;
+  }
+
+  .hero-content .title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content .description {
+    font-size: 1rem;
+  }
+  
+  .hero-content .description br {
+    display: none;
+  }
+  
+  .hero-slider-wrapper {
+    max-width: 100%;
+  }
+  
+  .floating-badge {
+    bottom: -10px;
+    right: 5px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .hero-features {
+    gap: 15px;
+  }
+  
+  .feature-item span {
+    font-size: 0.8rem;
+  }
+}

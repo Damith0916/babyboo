@@ -1,0 +1,221 @@
+:root {
+  --primary-color: #1a2f55; /* Deep Navy blue */
+  --secondary-color: #ff9fb4; /* Softer pastel pink */
+  --accent-blue: #7bb5fc; /* Softer accent blue */
+  --accent-yellow: #fde047;
+  
+  --bg-white: #ffffff;
+  --bg-pink: #fff3f5; /* Very light pink background */
+  --bg-blue: #f2f8ff; /* Very light blue background */
+  --bg-yellow: #fffdeb;
+  --card-bg: #ffffff;
+  
+  --text-dark: #2c3e60; /* Slightly softer text color */
+  --text-gray: #718096;
+  
+  --font-main: 'Quicksand', sans-serif;
+  --font-heading: 'Fredoka', sans-serif;
+  
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --transition: all 0.3s ease;
+}
+
+/* Sleepy Time Dark Mode */
+body.dark-theme {
+  --primary-color: #f0f7ff; /* White text instead of navy */
+  --secondary-color: #ffb6c1; /* Soft glowing pink */
+  --accent-blue: #a3cfff;
+  --accent-yellow: #fef08a;
+  
+  --bg-white: transparent; /* Fully transparent to see sky */
+  --bg-pink: transparent;
+  --bg-blue: transparent;
+  --bg-yellow: transparent;
+  --card-bg: rgba(22, 30, 56, 0.8); /* Solid enough for text, no blur */
+  
+  --text-dark: #f8fafc;
+  --text-gray: #94a3b8;
+  
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Give cards a subtle border instead of blur so stars are crisp */
+body.dark-theme .product-card,
+body.dark-theme .feature-node,
+body.dark-theme .testimonial-card,
+body.dark-theme .footer-main,
+body.dark-theme .product-modal,
+body.dark-theme .hero-swiper {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-main);
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-soft {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 16px;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  box-shadow: 0 4px 14px rgba(26, 47, 85, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #112040;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 47, 85, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+}
+
+/* Dark mode overrides for buttons */
+body.dark-theme .btn-primary {
+  color: #0a1128; /* Override transparent var(--bg-white) */
+}
+
+body.dark-theme .btn-primary:hover {
+  background-color: #ffffff;
+  color: #0a1128;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 247, 255, 0.2);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
