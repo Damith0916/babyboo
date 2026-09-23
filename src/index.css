@@ -79,7 +79,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 a {
@@ -150,7 +150,7 @@ img {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .text-center {
@@ -205,17 +205,62 @@ body.dark-theme .btn-primary:hover {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
+
+/* Decorative line under section titles */
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px auto 14px;
+}
+
+.section-divider span {
+  display: block;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.section-divider span:nth-child(1) { width: 20px; opacity: 0.4; }
+.section-divider span:nth-child(2) { width: 50px; }
+.section-divider span:nth-child(3) { width: 20px; opacity: 0.4; }
 
 .section-subtitle {
   color: var(--text-gray);
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* ── Mobile global fixes ───────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 1.8rem;
+  }
+  h1, h2, h3, h4 {
+    margin-bottom: 0.5rem;
+  }
+  .container {
+    padding: 0 16px;
+  }
 }

@@ -6,8 +6,11 @@ const Features = () => {
   return (
     <section id="features" className="section features-section">
       <div className="container text-center">
-        <h2 className="section-title" data-aos="fade-up">Why Parents Love Babyboo <i className="fa-solid fa-heart text-pink"></i></h2>
-        <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">Because your baby deserves the best.</p>
+        <div className="section-title-wrap">
+          <h2 className="section-title" data-aos="fade-up">Why Parents Love Babyboo <i className="fa-solid fa-heart text-pink"></i></h2>
+          <div className="section-divider" data-aos="fade-up" data-aos-delay="50"><span></span><span></span><span></span></div>
+          <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">Because your baby deserves the best.</p>
+        </div>
         
         <div className="features-grid">
           <div className="feature-box" data-aos="zoom-in" data-aos-delay="0">

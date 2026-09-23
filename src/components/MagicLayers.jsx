@@ -6,10 +6,13 @@ const MagicLayers = () => {
   return (
     <section id="magic-layers" className="section magic-section">
       <div className="container text-center">
-        <h2 className="section-title" data-aos="fade-up">Babyboo Advanced Technology</h2>
-        <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-          Everything your baby needs for maximum comfort and protection.
-        </p>
+        <div className="section-title-wrap">
+          <h2 className="section-title" data-aos="fade-up">Babyboo Advanced Technology</h2>
+          <div className="section-divider" data-aos="fade-up" data-aos-delay="50"><span></span><span></span><span></span></div>
+          <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Everything your baby needs for maximum comfort and protection.
+          </p>
+        </div>
         
         <div className="magic-wrapper">
           {/* Center Static Diaper */}

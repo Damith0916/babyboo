@@ -50,10 +50,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
             <i className={`fa-solid ${isDark ? 'fa-sun' : 'fa-moon'}`}></i>
           </div>
           
-          <div className="cart-icon">
-            <i className="fa-solid fa-cart-shopping"></i>
-            <span className="cart-badge">2</span>
-          </div>
+
           <a href="tel:+94777763766" className="btn btn-primary d-none-mobile" style={{textDecoration: 'none'}}>
             Order Now <i className="fa-solid fa-phone" style={{marginLeft: '5px'}}></i>
           </a>

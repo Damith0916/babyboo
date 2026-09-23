@@ -41,8 +41,11 @@ const Products = () => {
   return (
     <section id="products" className="section products-section">
       <div className="container text-center">
-        <h2 className="section-title" data-aos="fade-up">Meet Our Products <i className="fa-solid fa-heart text-pink"></i></h2>
-        <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">Carefully designed for every stage of your baby's journey.</p>
+        <div className="section-title-wrap">
+          <h2 className="section-title" data-aos="fade-up">Meet Our Products <i className="fa-solid fa-heart text-pink"></i></h2>
+          <div className="section-divider" data-aos="fade-up" data-aos-delay="50"><span></span><span></span><span></span></div>
+          <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">Carefully designed for every stage of your baby's journey.</p>
+        </div>
         
         <div className="products-grid">
           {products.map((product, index) => (
