@@ -24,19 +24,19 @@ const MagicLayers = () => {
           <div className="orbit-container" data-aos="fade-in" data-aos-delay="400">
             <div className="orbit-ring"></div>
             
-            {/* Node 1: Top Left */}
-            <div className="orbit-wrapper wrapper-tl">
-              <div className="feature-node card-blue">
-                <div className="node-icon"><i className="fa-solid fa-wind"></i></div>
+            {/* Node 1: Top */}
+            <div className="orbit-wrapper wrapper-n1">
+              <div className="feature-node card-purple">
+                <div className="node-icon"><i className="fa-solid fa-child-reaching"></i></div>
                 <div className="node-text">
-                  <h4>Breathable Cover</h4>
-                  <p>Prevents rashes</p>
+                  <h4>Q-Shape Ultra Pant</h4>
+                  <p>Ultimate comfort fit</p>
                 </div>
               </div>
             </div>
 
             {/* Node 2: Top Right */}
-            <div className="orbit-wrapper wrapper-tr">
+            <div className="orbit-wrapper wrapper-n2">
               <div className="feature-node card-pink flex-reverse">
                 <div className="node-icon"><i className="fa-solid fa-droplet"></i></div>
                 <div className="node-text text-right">
@@ -47,23 +47,34 @@ const MagicLayers = () => {
             </div>
 
             {/* Node 3: Bottom Right */}
-            <div className="orbit-wrapper wrapper-br">
+            <div className="orbit-wrapper wrapper-n3">
               <div className="feature-node card-yellow flex-reverse">
-                <div className="node-icon"><i className="fa-solid fa-feather"></i></div>
+                <div className="node-icon"><i className="fa-solid fa-droplet-slash"></i></div>
                 <div className="node-text text-right">
-                  <h4>100% Soft Cotton</h4>
-                  <p>Cloud-like comfort</p>
+                  <h4>Wet Indicator</h4>
+                  <p>Know when to change</p>
                 </div>
               </div>
             </div>
 
             {/* Node 4: Bottom Left */}
-            <div className="orbit-wrapper wrapper-bl">
+            <div className="orbit-wrapper wrapper-n4">
               <div className="feature-node card-green">
-                <div className="node-icon"><i className="fa-solid fa-compress"></i></div>
+                <div className="node-icon"><i className="fa-solid fa-shield-halved"></i></div>
                 <div className="node-text">
-                  <h4>Flexi-Fit Waistband</h4>
-                  <p>Freedom to move</p>
+                  <h4>Double Leak Protect</h4>
+                  <p>Zero leakage design</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Node 5: Top Left */}
+            <div className="orbit-wrapper wrapper-n5">
+              <div className="feature-node card-blue">
+                <div className="node-icon"><i className="fa-solid fa-wind"></i></div>
+                <div className="node-text">
+                  <h4>Breathable Cover</h4>
+                  <p>Prevents rashes</p>
                 </div>
               </div>
             </div>

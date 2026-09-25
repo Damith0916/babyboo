@@ -76,35 +76,31 @@ body.dark-theme .center-diaper {
   z-index: 6;
 }
 
-.wrapper-tl { animation: orbit-tl 40s linear infinite; }
-.wrapper-tr { animation: orbit-tr 40s linear infinite; }
-.wrapper-br { animation: orbit-br 40s linear infinite; }
-.wrapper-bl { animation: orbit-bl 40s linear infinite; }
+.wrapper-n1 { animation: orbit-n1 40s linear infinite; }
+.wrapper-n2 { animation: orbit-n2 40s linear infinite; }
+.wrapper-n3 { animation: orbit-n3 40s linear infinite; }
+.wrapper-n4 { animation: orbit-n4 40s linear infinite; }
+.wrapper-n5 { animation: orbit-n5 40s linear infinite; }
 
-/* 
-  Math for perfect upright orbit:
-  rotate(A) translateX(R) rotate(-A)
-  Radius R = 240px (half of 480px)
-  TL: starts at 225deg
-  TR: starts at 315deg
-  BR: starts at 45deg
-  BL: starts at 135deg
-*/
-@keyframes orbit-tl {
-  0% { transform: rotate(225deg) translateX(240px) rotate(-225deg); }
-  100% { transform: rotate(585deg) translateX(240px) rotate(-585deg); }
+@keyframes orbit-n1 {
+  0% { transform: rotate(-90deg) translateX(240px) rotate(90deg); }
+  100% { transform: rotate(270deg) translateX(240px) rotate(-270deg); }
 }
-@keyframes orbit-tr {
-  0% { transform: rotate(315deg) translateX(240px) rotate(-315deg); }
-  100% { transform: rotate(675deg) translateX(240px) rotate(-675deg); }
+@keyframes orbit-n2 {
+  0% { transform: rotate(-18deg) translateX(240px) rotate(18deg); }
+  100% { transform: rotate(342deg) translateX(240px) rotate(-342deg); }
 }
-@keyframes orbit-br {
-  0% { transform: rotate(45deg) translateX(240px) rotate(-45deg); }
-  100% { transform: rotate(405deg) translateX(240px) rotate(-405deg); }
+@keyframes orbit-n3 {
+  0% { transform: rotate(54deg) translateX(240px) rotate(-54deg); }
+  100% { transform: rotate(414deg) translateX(240px) rotate(-414deg); }
 }
-@keyframes orbit-bl {
-  0% { transform: rotate(135deg) translateX(240px) rotate(-135deg); }
-  100% { transform: rotate(495deg) translateX(240px) rotate(-495deg); }
+@keyframes orbit-n4 {
+  0% { transform: rotate(126deg) translateX(240px) rotate(-126deg); }
+  100% { transform: rotate(486deg) translateX(240px) rotate(-486deg); }
+}
+@keyframes orbit-n5 {
+  0% { transform: rotate(198deg) translateX(240px) rotate(-198deg); }
+  100% { transform: rotate(558deg) translateX(240px) rotate(-558deg); }
 }
 
 .feature-node {
@@ -157,6 +153,12 @@ body.dark-theme .center-diaper {
   box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(34, 197, 94, 0.15);
 }
 
+.card-purple {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border: 1px solid #e9d5ff;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 10px 20px rgba(168, 85, 247, 0.15);
+}
+
 /* Dark mode overrides for cards */
 body.dark-theme .card-blue {
   background: rgba(59, 130, 246, 0.15);
@@ -176,6 +178,11 @@ body.dark-theme .card-yellow {
 body.dark-theme .card-green {
   background: rgba(34, 197, 94, 0.15);
   border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+body.dark-theme .card-purple {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
