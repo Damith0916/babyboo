@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import './Products.css';
 import img1 from '../assets/babyboo-product-1.jpeg';
 import img2 from '../assets/babyboo-product-2.jpeg';
@@ -59,29 +63,44 @@ const Products = () => {
           <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">Carefully designed for every stage of your baby's journey.</p>
         </div>
 
-        <div className="products-grid">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="products-swiper"
+          style={{ paddingTop: '10px', paddingBottom: '60px' }}
+        >
           {products.map((product, index) => (
-            <Tilt key={product.id} tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="tilt-wrapper" data-aos="fade-up" data-aos-delay={index * 150}>
-              <div className={`product-card ${product.colorClass}`}>
-                <div className="product-img-wrapper">
-                  <img src={product.image} alt={product.name} />
-                  <div className="star decor-star"><i className="fa-solid fa-star"></i></div>
-                </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <div className="product-actions">
-                    <button
-                      className="btn-outline"
-                      onClick={() => setSelectedProduct(product)}
-                    >
-                      View Details
-                    </button>
+            <SwiperSlide key={product.id}>
+              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="tilt-wrapper" data-aos="fade-up" data-aos-delay={index * 150}>
+                <div className={`product-card ${product.colorClass}`}>
+                  <div className="product-img-wrapper">
+                    <img src={product.image} alt={product.name} />
+                    <div className="star decor-star"><i className="fa-solid fa-star"></i></div>
+                  </div>
+                  <div className="product-info">
+                    <h3>{product.name}</h3>
+                    <div className="product-actions">
+                      <button
+                        className="btn-outline"
+                        onClick={() => setSelectedProduct(product)}
+                      >
+                        View Details
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Tilt>
+              </Tilt>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
 
       {/* Product Details Modal */}
