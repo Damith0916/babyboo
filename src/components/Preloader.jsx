@@ -5,14 +5,17 @@ import './Preloader.css';
 import heroImg1 from '../assets/hero.png';
 import heroImg2 from '../assets/hero2.png';
 import heroImg3 from '../assets/hero3.png';
-import productImg from '../assets/product.png';
+import img1 from '../assets/babyboo-product-1.jpeg';
+import img2 from '../assets/babyboo-product-2.jpeg';
+import img3 from '../assets/babyboo-product-3.jpeg';
+import img4 from '../assets/babyboo-product-4.jpeg';
 import ctaImg from '../assets/cta.png';
 import bannerImg from '../assets/banner.png';
 import diaperImg from '../assets/diaper.png';
 
 const IMAGE_ASSETS = [
   heroImg1, heroImg2, heroImg3,
-  productImg, ctaImg, bannerImg, diaperImg,
+  img1, img2, img3, img4, ctaImg, bannerImg, diaperImg,
 ];
 
 const Preloader = () => {

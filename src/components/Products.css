@@ -4,7 +4,7 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-top: 50px;
 }
@@ -254,6 +254,35 @@ body.dark-theme .modal-btn {
 }
 
 @media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-image {
+    height: 120px;
+    margin-bottom: 10px;
+  }
+
+  .product-info h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .btn-outline {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
   .product-actions {
     flex-direction: column;
   }
